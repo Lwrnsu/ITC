@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jay Lawrence</title>
+
+	<style type="text/css">
+		@font-face {
+			font-family: outline;
+			src: url(./components/fonts/Outline.ttf);
+		}
+		@font-face {
+			font-family: solid;
+			src: url(./components/fonts/Solid.ttf);
+		}
+
+		@keyframes dropText {
+			from {
+				opacity: 0;
+				transform: translateY(-30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes dropText-2 {
+			from {
+				opacity: 0;
+				transform: translateY(100px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+		@keyframes carousel {
+			from {
+				translate: 0;
+			}
+			to {
+				translate: 0 -100%;
+			}
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			overflow-x: hidden;
+		}
+		header {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#header-container {
+			height: 80vh;
+			width: 75vw;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#header-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		#h1-1 {
+			font-family: outline;
+			animation: dropText 1s linear;
+		}
+		#h1-2 {
+			font-family: solid;
+			animation: dropText 1s linear 1s backwards;
+		}
+		.h1-header {
+			font-size: 60px;
+		}
+		#rhetorical-q {
+			height: 20vh;
+			width: 100vw;
+			background-color: black;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+		#rhetorical-q h1 {
+			font-family: outline;
+			font-size: 60px;
+			animation: dropText-2 both;
+			animation-timeline: view();
+			animation-range: entry 0 cover 25%;
+		}
+		#bio-page {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			padding: 25px;
+			gap: 15px;
+		}
+		#content h1 {
+			width: 480px;
+			font-family: solid;
+			border: 2px solid;
+			border-radius: 10px;
+			padding: 0px 5px 0px 5px;
+			margin-bottom: 25px;
+			box-shadow: 2px 2px;
+			animation: dropText-2 both;
+			animation-timeline: view();
+			animation-range: entry 0 cover 25%;
+		}
+		#content p {
+			font-family: sans-serif;
+			line-height: 25px;
+			text-align: justify;
+			text-indent: 50px;
+			animation: dropText-2 both;
+			animation-timeline: view();
+			animation-range: entry 0 cover 25%;
+		}
+		#social-header {
+			height: 20vh;
+			width: 100vw;
+			background-color: black;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: sticky;
+			top: 0;
+		}
+		#social-header h1 {
+			font-family: outline;
+			font-size: 60px;
+			animation: dropText-2 both;
+			animation-timeline: view();
+			animation-range: entry 0 cover 25%;
+		}
+		#social-container {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#social-content {
+			background-image: url(./components/images/cat.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 60% 80%;
+			width: 50vw;
+			height: 75vh;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+		}
+		#social-box {
+			display: flex;
+			width: 75%;
+			height: 50px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.social {
+			height: 50px;
+			list-style: none;
+			border: 2px solid black;
+			border-radius: 20px;
+			box-shadow: 2px 2px black;
+			transition: all 0.25s linear;
+			display: flex;
+			justify-content: center;
+			animation: dropText-2 both;
+			animation-timeline: view();
+			animation-range: entry 0 cover 25%;
+		}
+		.social-text{
+			font-family: solid;
+			padding: 12px;
+		}
+		.social:hover {
+			transform: translateY(-10px);
+		}
+		#facebook:hover {
+			background-color: #1877F2;
+		}
+		#instagram:hover {
+			background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+		}
+		#github:hover {
+			background-color: black;
+		}
+		#linkedin:hover {
+			background-color: #0a66c2;
+		}
+		.social-text {
+			text-decoration: none;
+			color: black;
+		}
+		.social-text:hover {
+			color: white;
+		}
+		.carousel-container {
+			height: 700px;
+			overflow-y: hidden;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			mask-image: linear-gradient(to top,transparent, black 20%, black 80%, transparent);
+		}
+		.carousel {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			animation: carousel 25s infinite linear;
+		}
+		.box {
+			height: 350px;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		#image-1 {
+			background-image: url(./components/images/image1.jpg);
+		}
+		#image-2 {
+			background-image: url(./components/images/image2.jpg);
+		}
+		#image-3 {
+			background-image: url(./components/images/image3.jpg);
+		}
+		#image-4 {
+			background-image: url(./components/images/image1.jpg);
+		}
+		#image-5 {
+			background-image: url(./components/images/image2.jpg);
+		}
+		#image-6 {
+			background-image: url(./components/images/image3.jpg);
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<div id="header-container">
+			<div id="header-content">
+				<h1 id="h1-1" class="h1-header">THE LIFE OF A</h1>
+				<h1 id="h1-2" class="h1-header">SOFTWARE ENGINEER</h1>	
+		</div>
+		</div>
+	</header>
+
+	<div id="introduction-page">
+		<div id="rhetorical-q">
+			<h1>WHO AM I?</h1>
+		</div>
+		<div id="bio-page">
+			<div class="carousel-container">
+				<div class="carousel">
+					<div class="box" id="image-1"></div>
+					<div class="box" id="image-2"></div>
+					<div class="box" id="image-3"></div>
+				</div>
+				<div class="carousel">
+					<div class="box" id="image-4"></div>
+					<div class="box" id="image-5"></div>
+					<div class="box" id="image-6"></div>
+				</div>
+			</div>
+			<div id="content">
+				<h1>DE LUNA, JAY LAWRENCE S.</h1>
+				<p>Born on April 25, 2007 at Bataan General Hospital, Balanga City, Bataan. At my toddler stage, I was raised at Bataan. In Bataan, my grandmother takes care of me. There, I only play outside with my cousins. Few months before starting my education, I moved here at Olongapo City, Zambales, I was taken care by my other grandmother. In my primary education, I studied and graduated at Sta. Rita Elementary School. My only interest is playing, that is why I am one of the students below the class list. In my secondary education, I studied and graduated at St. Joseph College Olongapo City. In those days, my life started to revolve.  </p>
+				<br>
+				<p>My interest was still playing video games, but it started to lessen. In my 10th grade, I got interested at academics. Because of that, I gained recognition. Then all of a sudden, I got interested in programming. Because of my habit of playing video games, I quickly adapted to technology. Firstly, I learned HTML, CSS, and JavaScript. Then, I went to Gordon College to pursue Bachelor of Science in Computer Science. There, I've got deep understanding and knowledge about programming. While studying, I also learned various languages and skills all by my self. I've been learning by my self because I want to deepen my skills and also. I learned and mastered all the backend technologies such as Java, C#, and JavaScript. Also, I've mastered the frontend technologies that I've learned in the start. After learning, I've created many projects to master all of them. Therefore, I became a Full-stack developer. Because of this skills, I applied to job on my third year. I got accepted, I will gain experience for me to progress quickly after graduation. While having a work, I've still learning. I know that the technology is constantly evolving, therefore I had to keep up. On my free time, I've learned Artificial Intelligence and Machine learning. With this, I have a solid background on programming. Fast forward, I've graduated Cum Laude on Gordon College with a degree of Bachelor of Science in Computer Science.</p>
+				<br>
+				<p>After graduation, I've applied in another job outside the country. With my 2 years experience and solid background in programming, I got accepted. Several years, I am promoted to a Senior Software Engineer and a Principal AI Engineer, I am so happy. The hardwork paid off! Everything is attainable, when you work hard for it. This is my journey on my career—Software Engineer.</p>
+			</div>
+		</div>
+	</div>
+	<div id="social-page">
+		<div id="social-header">
+			<h1>CONTACT ME!</h1>
+		</div>
+		<div id="social-container">
+			<div id="social-content">
+				<ul id="social-box">
+					<li class="social" id="facebook">
+						<a href="https://www.facebook.com/delunajaylawrence" target="_blank" class="social-text">Facebook</a>
+					</li>
+					<li class="social" id="instagram">
+						<a href="https://www.instagram.com/lw.rnsu" target="_blank" class="social-text">Instagram</a>
+					</li>
+					<li class="social" id="github">
+						<a href="https://www.github.com/lwrnsu" target="_blank" class="social-text">Github</a>
+					</li>
+					<li class="social" id="linkedin">
+						<a href="https://www.linkedin.com/in/delunajaylawrence" target="_blank" class="social-text">LinkedIn</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
